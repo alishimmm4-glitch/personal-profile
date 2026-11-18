@@ -1,721 +1,283 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description"
-        content="Personal profile of Alishba Shahid, an aspiring Full Stack Developer seeking an internship.">
+        content="Personal profile of Alishba Shahid, a Full Stack Developer.">
+
     <title>Alishba Shahid | Personal Profile</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Poppins:wght@400;500;600&family=Dancing+Script:wght@600;700&display=swap"
-        rel="stylesheet">
-
-    <style>
-        /* ---------- Design tokens (light + dark) ---------- */
-        :root {
-            --bg: #f6f3e8;
-            --surface: #fffdf7;
-            --ink: #14301f;
-            --muted: #5d6b60;
-            --accent: #a16207;
-            --accent-2: #166534;
-            --line: #e4dcc0;
-            --serif: "Playfair Display", Georgia, "Times New Roman", serif;
-            --script: "Dancing Script", "Brush Script MT", cursive;
-            --sans: "Poppins", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-            box-sizing: border-box;
-            padding-top: env(safe-area-inset-top, 0px);
-            padding-bottom: env(safe-area-inset-bottom, 0px);
-            color-scheme: light;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root:not([data-theme="light"]) {
-                --bg: #0b1a12;
-                --surface: #12261a;
-                --ink: #f5f0dc;
-                --muted: #a9b8a8;
-                --accent: #f5c451;
-                --accent-2: #4ade80;
-                --line: #25402f;
-                color-scheme: dark;
-            }
-        }
-
-        :root[data-theme="dark"] {
-            --bg: #0b1a12;
-            --surface: #12261a;
-            --ink: #f5f0dc;
-            --muted: #a9b8a8;
-            --accent: #f5c451;
-            --accent-2: #4ade80;
-            --line: #25402f;
-            color-scheme: dark;
-        }
-
-        /* ---------- Base ---------- */
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 70px;
-        }
-
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--ink);
-            font-family: var(--sans);
-            line-height: 1.7;
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: var(--serif);
-            line-height: 1.15;
-            margin: 0 0 .5em;
-        }
-
-        a {
-            color: var(--accent-2);
-        }
-
-        .wrap {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 22px;
-        }
-
-        section {
-            padding: 56px 0 8px;
-        }
-
-        h2 {
-            font-size: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        h2::after {
-            content: "";
-            flex: 1;
-            height: 2px;
-            background: var(--line);
-        }
-
-        h2 span {
-            color: var(--accent);
-            font-size: .95rem;
-            font-family: var(--sans);
-            font-weight: 600;
-            letter-spacing: .1em;
-        }
-
-        /* ---------- Navigation ---------- */
-        header.site-header {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background: var(--bg);
-            border-bottom: 1px solid var(--line);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 0;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-family: var(--script);
-            font-weight: 700;
-            font-size: 1.7rem;
-            text-decoration: none;
-            color: var(--ink);
-        }
-
-        .logo b {
-            color: var(--accent);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 18px;
-            margin: 0;
-            padding: 0;
-            flex-wrap: wrap;
-        }
-
-        nav ul a {
-            text-decoration: none;
-            color: var(--muted);
-            font-size: .92rem;
-            font-weight: 500;
-        }
-
-        nav ul a:hover {
-            color: var(--accent);
-        }
-
-        /* ---------- Floating pill navbar ---------- */
-        header.site-header {
-            top: 0;
-            background: var(--bg);
-            border-bottom: 1px solid var(--line);
-            padding-bottom: 10px;
-        }
-
-        nav {
-            margin-top: 10px;
-            padding: 8px 10px 8px 26px;
-            border-radius: 999px;
-            background: var(--surface);
-
-
-            border: 1px solid var(--line);
-            box-shadow: 0 12px 30px -14px rgba(20, 48, 31, .45);
-        }
-
-        nav ul {
-            gap: 4px;
-        }
-
-        nav ul a {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 999px;
-            letter-spacing: .02em;
-            transition: background .25s, color .25s, transform .25s;
-        }
-
-        nav ul a:hover {
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
-            color: var(--bg);
-            transform: translateY(-2px);
-        }
-
-        .btn {
-            color: var(--bg);
-        }
-
-        @media (max-width: 760px) {
-            nav {
-                border-radius: 28px;
-                padding: 12px;
-            }
-        }
-
-        /* ---------- Hero ---------- */
-        .hero {
-            padding-top: 56px;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 48px;
-            justify-items: center;
-            text-align: center;
-        }
-
-        .eyebrow {
-            color: var(--accent);
-            font-weight: 600;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            font-size: .8rem;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.4rem, 6vw, 4rem);
-            font-weight: 800;
-            letter-spacing: -.01em;
-        }
-
-        .hero h1 em {
-            color: var(--accent);
-            font-family: var(--script);
-            font-style: normal;
-            font-weight: 700;
-            font-size: 1.15em;
-        }
-
-        .role {
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: 1.4rem;
-            color: var(--accent-2);
-            margin: 0 0 14px;
-        }
-
-        .lead {
-            font-size: 1.12rem;
-            color: var(--muted);
-            max-width: 46ch;
-            margin-inline: auto;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            margin: 8px 10px 0 0;
-        }
-
-        .btn.ghost {
-            background: transparent;
-            color: var(--ink);
-            border: 2px solid var(--line);
-        }
-
-        .portrait {
-            position: relative;
-            justify-self: center;
-        }
-
-        .portrait::before {
-            content: "";
-            position: absolute;
-            inset: 14px -14px -14px 14px;
-            border: 2px solid var(--accent);
-            border-radius: 46% 54% 52% 48% / 52% 46% 54% 48%;
-        }
-
-        .portrait img {
-            position: relative;
-            display: block;
-            width: min(300px, 70vw);
-            aspect-ratio: 1;
-            object-fit: cover;
-            border-radius: 46% 54% 52% 48% / 52% 46% 54% 48%;
-            background: var(--surface);
-        }
-
-        /* ---------- Cards, lists, table ---------- */
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            padding: 26px;
-        }
-
-        .two-col {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 22px;
-        }
-
-        .facts {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .facts li {
-            display: flex;
-            gap: 8px;
-            padding: 8px 0;
-            border-bottom: 1px dashed var(--line);
-        }
-
-        .facts li:last-child {
-            border-bottom: 0;
-        }
-
-        .facts strong {
-            color: var(--accent);
-            display: inline-block;
-            flex-shrink: 0;
-            min-width: 92px;
-        }
-
-        ul.skills {
-            padding-left: 20px;
-            margin: 0;
-        }
-
-        ul.skills li::marker {
-            color: var(--accent);
-        }
-
-        ol.goals {
-            padding-left: 22px;
-            margin: 0;
-        }
-
-        ol.goals li::marker {
-            color: var(--accent-2);
-            font-weight: 700;
-        }
-
-        li {
-            margin-bottom: 6px;
-        }
-
-        .table-scroll {
-            overflow-x: auto;
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            background: var(--surface);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 560px;
-        }
-
-        caption {
-            text-align: left;
-            padding: 16px 20px;
-            color: var(--muted);
-            font-size: .9rem;
-            caption-side: bottom;
-        }
-
-        th,
-        td {
-            padding: 14px 20px;
-            text-align: left;
-            border-bottom: 1px solid var(--line);
-        }
-
-        thead th {
-            background: var(--accent-2);
-            color: #fff;
-            font-family: var(--serif);
-            font-weight: 500;
-        }
-
-        :root:not([data-theme="light"]) thead th {
-            color: #0b1a12;
-        }
-
-        tbody tr:last-child td {
-            border-bottom: 0;
-        }
-
-        tbody tr:hover {
-            background: color-mix(in srgb, var(--accent) 8%, transparent);
-        }
-
-        /* ---------- Social + Contact ---------- */
-        .social {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .social a {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 999px;
-            border: 2px solid var(--line);
-            background: var(--surface);
-            color: var(--ink);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .social a:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        address {
-            font-style: normal;
-        }
-
-        address p {
-            margin: 6px 0;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            margin: 12px 0 4px;
-            font-size: .92rem;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 12px 14px;
-            border: 1.5px solid var(--line);
-            border-radius: 12px;
-            background: var(--bg);
-            color: var(--ink);
-            font: inherit;
-        }
-
-        input:focus,
-        textarea:focus {
-            outline: 2px solid var(--accent);
-            border-color: transparent;
-        }
-
-        button.btn {
-            border: 0;
-            cursor: pointer;
-            font: inherit;
-            font-weight: 600;
-            margin-top: 16px;
-        }
-
-        footer {
-            margin-top: 64px;
-            padding: 26px 0 36px;
-            border-top: 1px solid var(--line);
-            text-align: center;
-            color: var(--muted);
-            font-size: .9rem;
-        }
-
-        @media (max-width: 760px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .lead {
-                margin-inline: auto;
-            }
-
-            nav {
-                justify-content: center;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-    <!-- ===== Header & navigation ===== -->
-    <header class="site-header">
-        <div class="wrap">
-            <nav aria-label="Main navigation">
-                <a class="logo" href="#home">Alishba <b>Shahid</b></a>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#social">Social</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <a href="#home">Alishba Shahid</a>
+
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#social">Social</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <!-- ===== Hero / introduction ===== -->
-        <section id="home" class="hero">
-            <div class="wrap hero-grid">
-                <div>
-                    <h1><em>Hi, I’m</em> Alishba <em>Shahid</em></h1>
-                    <p class="role">Full Stack Web Development · BSCS Graduate</p>
-                    <p class="lead">
-                        React, Next, Node.js, Express, MongoDB<br>Based in Lahore, Pakistan
 
-                    </p>
-                    <a class="btn" href="#contact">Get in touch</a>
-                    <a class="btn ghost" href="#about">Read my story</a>
-                </div>
+        <!-- Home Section -->
+        <section id="home">
 
-            </div>
+            <h1>Hi, I'm Alishba Shahid</h1>
+
+            <h2>Full Stack Web Developer | BSCS Graduate</h2>
+
+            <p>
+                React.js, Next.js, Node.js, Express.js and MongoDB.
+                Based in Lahore, Pakistan.
+            </p>
+
+            <a href="#contact">Get in Touch</a>
+            <a href="#about">Read My Story</a>
+
         </section>
 
-        <!-- ===== About / biography ===== -->
+        <!-- About Section -->
         <section id="about">
-            <div class="wrap">
-                <h2><span>01</span> About Me</h2>
-                <div class="two-col">
-                    <article class="card">
-                        <h3>My Biography</h3>
-                        <p>
-                            I am Alishba Shahid, a BSCS graduate from Government College University,
-                            Faisalabad (GCUF), with a passion for technology and web development.
-                        </p>
-                        <p>
-                            I specialize in MERN Stack development, building responsive and user-friendly
-                            web applications using React.js, Next.js, Node.js, Express.js, and MongoDB.
-                            I enjoy turning ideas into practical solutions through projects like a
-                            Blood Donation Management System and an AI-Assisted Test Generator.
-                        </p>
-                        <p>
-                            I am always eager to learn, explore new technologies, and grow as a
-                            Full Stack Web Development.
-                        </p>
-                    </article>
 
-                    <aside class="card">
-                        <h3>Quick Facts</h3>
-                        <ul class="facts">
-                            <li><strong>Name</strong> Alishba Shahid</li>
-                            <li><strong>Role</strong> Full Stack Web Development</li>
-                            <li><strong>Interests</strong> MERN Stack Development, Problem Solving</li>
-                            <li><strong>Languages</strong> English, Urdu</li>
-                            <li><strong>Status</strong> Open to internship Opportunities</li>
-                        </ul>
-                    </aside>
-                </div>
+            <h2>01. About Me</h2>
 
-                <div class="card" style="margin-top:22px">
-                    <h3>My Goals</h3>
-                    <ol class="goals">
-                        <li>Graduate with honours in Computer Science.</li>
-                        <li>Secure a Full Stack Developer internship.</li>
-                        <li>Launch an open-source learning tool for students.</li>
-                        <li>Become a full-stack engineer and mentor others.</li>
-                    </ol>
-                </div>
+            <article>
+                <h3>My Biography</h3>
+
+                <p>
+                    I am Alishba Shahid, a BSCS graduate from
+                    Government College University Faisalabad (GCUF),
+                    with a passion for technology and web development.
+                </p>
+
+                <p>
+                    I specialize in MERN Stack development, building
+                    responsive and user-friendly web applications
+                    using React.js, Next.js, Node.js, Express.js,
+                    and MongoDB.
+                </p>
+
+                <p>
+                    I have worked on projects like a Blood Donation
+                    Management System and an AI-Assisted Test Generator.
+                </p>
+
+                <p>
+                    I am always eager to learn new technologies
+                    and grow as a Full Stack Developer.
+                </p>
+            </article>
+
+            <aside>
+                <h3>Quick Facts</h3>
+
+                <ul>
+                    <li><strong>Name:</strong> Alishba Shahid</li>
+                    <li><strong>Role:</strong> Full Stack Developer</li>
+                    <li><strong>Interests:</strong> MERN Stack Development, Problem Solving</li>
+                    <li><strong>Languages:</strong> English, Urdu</li>
+                    <li><strong>Status:</strong> Open to Internship Opportunities</li>
+                </ul>
+            </aside>
+
+            <div>
+                <h3>My Goals</h3>
+
+                <ol>
+                    <li>Continue growing in Computer Science.</li>
+                    <li>Secure a Full Stack Developer internship.</li>
+                    <li>Launch an open-source learning tool for students.</li>
+                    <li>Become a professional Full Stack Engineer.</li>
+                </ol>
             </div>
+
         </section>
 
-        <!-- ===== Education ===== -->
+        <!-- Education Section -->
         <section id="education">
-            <div class="wrap">
-                <h2><span>02</span> Education</h2>
-                <div class="table-scroll">
-                    <table>
-                        <caption>Table 1: Summary of my educational journey.</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Qualification</th>
-                                <th scope="col">Institution</th>
-                                <th scope="col">Years</th>
-                                <th scope="col">Result</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>BSCS: Bachelor’s of Computer Science</td>
-                                <td>Government College University Faisalabad (GCUF)</td>
-                                <td>Completed 2026</td>
-                                <td>CGPA 3.45</td>
-                            </tr>
-                            <tr>
-                                <td>Intermediate (ICS)</td>
-                                <td>Government Degree College for Women</td>
-                                <td>Completed 2022</td>
-                                <td>Grade A</td>
-                            </tr>
-                            <tr>
-                                <td>Matriculation (Biology Science)</td>
-                                <td>Al-Azeem School</td>
-                                <td>Completed 2020</td>
-                                <td>Grade A</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+
+            <h2>02. Education</h2>
+
+            <table border="1">
+
+                <caption>My Educational Journey</caption>
+
+                <thead>
+                    <tr>
+                        <th>Qualification</th>
+                        <th>Institution</th>
+                        <th>Years</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>BSCS</td>
+                        <td>Government College University Faisalabad (GCUF)</td>
+                        <td>Completed 2026</td>
+                        <td>CGPA 3.45</td>
+                    </tr>
+
+                    <tr>
+                        <td>Intermediate (ICS)</td>
+                        <td>Government Degree College for Women</td>
+                        <td>Completed 2022</td>
+                        <td>Grade A</td>
+                    </tr>
+
+                    <tr>
+                        <td>Matriculation (Biology Science)</td>
+                        <td>Al-Azeem School</td>
+                        <td>Completed 2020</td>
+                        <td>Grade A</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
         </section>
 
-        <!-- ===== Skills ===== -->
+        <!-- Skills Section -->
         <section id="skills">
-            <div class="wrap">
-                <h2><span>03</span> Skills</h2>
-                <div class="two-col">
-                    <div class="card">
-                        <h3>Technical Skills</h3>
-                        <ul class="skills">
-                            <li>HTML5, CSS3 &amp; Tailwind CSS</li>
-                            <li>JavaScript, React.js &amp; Next.js</li>
-                            <li>Node.js &amp; Express.js</li>
-                            <li>MongoDB &amp; REST APIs</li>
-                            <li>Git &amp; GitHub</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Soft Skills</h3>
-                        <ul class="skills">
-                            <li>Clear communication</li>
-                            <li>Teamwork and mentoring</li>
-                            <li>Creative problem solving</li>
-                            <li>Time management</li>
-                            <li>Adaptability</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- ===== Social media ===== -->
-        <section id="social">
-            <div class="wrap">
-                <h2><span>04</span> Find Me Online</h2>
-                <ul class="social">
-                    <li><a href="https://www.linkedin.com/in/alishba-shahid-b134a140a" target="_blank"
-                            rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="https://github.com/alishimmm4-glitch" target="_blank"
-                            rel="noopener noreferrer">GitHub</a></li>
+            <h2>03. Skills</h2>
 
+            <div>
+                <h3>Technical Skills</h3>
 
-
+                <ul>
+                    <li>HTML5, CSS3 and Tailwind CSS</li>
+                    <li>JavaScript, React.js and Next.js</li>
+                    <li>Node.js and Express.js</li>
+                    <li>MongoDB and REST APIs</li>
+                    <li>Git and GitHub</li>
                 </ul>
             </div>
-        </section>
 
-        <!-- ===== Contact ===== -->
-        <section id="contact">
-            <div class="wrap">
-                <h2><span>05</span> Contact</h2>
-                <div class="two-col">
-                    <div class="card">
-                        <h3>Let’s talk</h3>
-                        <p>Have a project, an internship or just a hello? My inbox is always open.</p>
-                        <address>
-                            <p><strong>Email:</strong> <a
-                                    href="mailto:alishbashahid169@gmail.com">alishbashahid169@gmail.com</a></p>
-                            <p><strong>Phone:</strong> <a href="tel:+92 336 7440852">+92 336 7440852</a></p>
-                        </address>
-                    </div>
+            <div>
+                <h3>Soft Skills</h3>
 
-                    <div class="card">
-                        <h3>Send a message</h3>
-                        <form action="mailto:alishbashahid169@gmail.com" method="post" enctype="text/plain">
-                            <label for="name">Your name</label>
-                            <input type="text" id="name" name="name" placeholder="Jane Doe" required>
-
-                            <label for="email">Your email</label>
-                            <input type="email" id="email" name="email" placeholder="jane@example.com" required>
-
-                            <label for="msg">Message</label>
-                            <textarea id="msg" name="message" rows="4" placeholder="Write something nice…"
-                                required></textarea>
-
-                            <button class="btn" type="submit">Send message</button>
-                        </form>
-                    </div>
-                </div>
+                <ul>
+                    <li>Clear Communication</li>
+                    <li>Teamwork and Mentoring</li>
+                    <li>Creative Problem Solving</li>
+                    <li>Time Management</li>
+                    <li>Adaptability</li>
+                </ul>
             </div>
+
         </section>
+
+        <!-- Social Media Section -->
+        <section id="social">
+
+            <h2>04. Find Me Online</h2>
+
+            <ul>
+                <li>
+                    <a href="https://www.linkedin.com/in/alishba-shahid-b134a140a"
+                        target="_blank" rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://github.com/alishimmm4-glitch"
+                        target="_blank" rel="noopener noreferrer">
+                        GitHub
+                    </a>
+                </li>
+            </ul>
+
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+
+            <h2>05. Contact</h2>
+
+            <div>
+                <h3>Let's Talk</h3>
+
+                <p>
+                    Have a project, an internship opportunity,
+                    or just want to say hello? Feel free to contact me.
+                </p>
+
+                <address>
+                    <p>
+                        <strong>Email:</strong>
+                        <a href="mailto:alishbashahid169@gmail.com">
+                            alishbashahid169@gmail.com
+                        </a>
+                    </p>
+
+                    <p>
+                        <strong>Phone:</strong>
+                        <a href="tel:+923367440852">
+                            +92 336 7440852
+                        </a>
+                    </p>
+                </address>
+            </div>
+
+            <div>
+                <h3>Send a Message</h3>
+
+                <form action="mailto:alishbashahid169@gmail.com"
+                    method="post" enctype="text/plain">
+
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name"
+                        placeholder="Enter your name" required>
+
+                    <br><br>
+
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email"
+                        placeholder="Enter your email" required>
+
+                    <br><br>
+
+                    <label for="msg">Message:</label>
+                    <textarea id="msg" name="message"
+                        rows="4" placeholder="Write your message..."
+                        required></textarea>
+
+                    <br><br>
+
+                    <button type="submit">Send Message</button>
+
+                </form>
+            </div>
+
+        </section>
+
     </main>
 
-    <!-- ===== Footer ===== -->
+    <!-- Footer -->
     <footer>
-        <div class="wrap">
-            <p>© 2026 Alishba Shahid · Handcrafted with HTML5 &amp; CSS3 · <a href="#home">Back to top ↑</a></p>
-        </div>
+
+        <p>
+            &copy; 2026 Alishba Shahid |
+            Created with HTML5 |
+            <a href="#home">Back to Top</a>
+        </p>
+
     </footer>
 
 </body>
-
 </html>
