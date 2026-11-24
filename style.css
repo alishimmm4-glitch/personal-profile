@@ -1,8 +1,3 @@
-/* ==========================================================
-   Alishba Shahid | Modern Dark Theme (CSS3)
-   Works with the existing index.html - no class changes needed
-   ========================================================== */
-
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
 
 :root {
@@ -61,7 +56,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     outline-offset: 3px;
 }
 
-/* ---------- Solid navbar (not transparent) ---------- */
+/* ---------- Solid navbar ---------- */
 header {
     position: sticky;
     top: 0;
@@ -443,10 +438,6 @@ footer p { max-width: none; margin: 0 auto; }
 }
 
 
-/* ==========================================================
-   Laptop / desktop screens: first page fills the whole screen
-   and its content is centered
-   ========================================================== */
 @media (min-width: 1024px) {
 
     :root { --nav-h: 76px; }
@@ -459,14 +450,14 @@ footer p { max-width: none; margin: 0 auto; }
 
     nav { width: 100%; }
 
-    /* hero card = full first screen (navbar + top/bottom gaps removed) */
+    
     #home {
         min-height: calc(100vh - var(--nav-h) - 4rem);
         min-height: calc(100svh - var(--nav-h) - 4rem);
         display: grid;
         grid-template-columns: auto auto;
-        justify-content: center;   /* centers content horizontally */
-        align-content: center;     /* centers content vertically */
+        justify-content: center;   
+        align-content: center;     
         justify-items: center;
         padding: 2rem;
     }
@@ -479,19 +470,12 @@ footer p { max-width: none; margin: 0 auto; }
         text-align: center;
     }
 
-    /* two buttons side by side, together in the center */
+    
     #home > a:first-of-type { grid-column: 1; justify-self: end; }
     #home > a:last-of-type  { grid-column: 2; justify-self: start; }
 }
 
 
-/* ==========================================================
-   HERO BACKGROUND IMAGE  (only the first page / #home)
-   - uses your photo  alishba.jpg  (same folder as index.html)
-   - to use another photo, just change the name in url("...") below
-   ========================================================== */
-
-/* full-width hero (no top gap under the navbar) */
 body { overflow-x: hidden; }
 main { padding-top: 0; }
 
@@ -508,13 +492,13 @@ main { padding-top: 0; }
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
 
-    /* photo + overlay are drawn by #home::before / ::after (see below) */
+    
     background-color: #0a0f1e;
     position: relative;
     isolation: isolate;
     overflow: hidden;
 
-    /* content centered on every screen size */
+    
     display: grid;
     grid-template-columns: auto auto;
     justify-content: center;
@@ -534,7 +518,7 @@ main { padding-top: 0; }
 #home > a:first-of-type { grid-column: 1; justify-self: end; }
 #home > a:last-of-type  { grid-column: 2; justify-self: start; }
 
-/* laptop / desktop: hero fills the screen under the navbar + parallax */
+
 @media (min-width: 1024px) {
     #home {
         min-height: calc(100vh - var(--nav-h));
@@ -542,7 +526,6 @@ main { padding-top: 0; }
     }
 }
 
-/* small phones: buttons stack so nothing overflows */
 @media (max-width: 480px) {
     #home > a:first-of-type,
     #home > a:last-of-type {
@@ -552,17 +535,13 @@ main { padding-top: 0; }
 }
 
 
-/* ----------------------------------------------------------
-   HERO PHOTO SIZE  -  change these 2 values to adjust the picture
-   --photo-height : 100% = full hero height, 85% = smaller picture
-   --photo-ratio  : width / height of the picture box (3 / 4 = portrait)
-   ---------------------------------------------------------- */
+
 :root {
     --photo-height: 150%;
     --photo-ratio: 8 / 8;
 }
 
-/* the photo (black & white) */
+
 #home::before {
     content: "";
     position: absolute;
@@ -572,7 +551,7 @@ main { padding-top: 0; }
     filter: grayscale(100%) contrast(1.05);
 }
 
-/* dark black overlay on top of the photo */
+
 #home::after {
     content: "";
     position: absolute;
@@ -581,7 +560,7 @@ main { padding-top: 0; }
     background: linear-gradient(rgba(3, 6, 16, 0.5), rgba(3, 6, 16, 0.8));
 }
 
-/* laptop / desktop: whole picture in the middle, soft edges, nothing zoomed */
+
 @media (min-width: 1024px) {
     #home::before {
         inset: 0 auto auto 50%;
@@ -595,7 +574,7 @@ main { padding-top: 0; }
     }
 }
 
-/* smooth parallax on scroll (supported browsers, laptops only) */
+
 @keyframes heroParallax {
     from { transform: translateX(-50%) translateY(0); }
     to   { transform: translateX(-50%) translateY(120px); }
